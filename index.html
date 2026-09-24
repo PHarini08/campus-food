@@ -4,831 +4,320 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Campus Food</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header class="header">
-
-    <button class="menu-button" onclick="openMenu()">
-        ☰
-    </button>
-
+    <button class="menu-button" onclick="openMenu()">☰</button>
     <h1>Campus Food</h1>
-
     <button class="cart-button" onclick="openCart()">
         🛒
         <span id="cart-count">0</span>
     </button>
-
 </header>
-
 
 <main class="main-content">
 
-
     <!-- SEARCH -->
-
     <div class="search-box">
-
         <span>🔍</span>
-
-        <input
-            type="text"
-            id="search-input"
-            placeholder="Search food..."
-            oninput="searchFood()">
-
+        <input type="text" id="search-input" placeholder="Search food..." oninput="searchFood()">
     </div>
 
-
     <!-- FILTER -->
+    <button class="filter-button" onclick="toggleFilters()">Filters</button>
 
-    <button
-        class="filter-button"
-        onclick="toggleFilters()">
-
-        Filters
-
-    </button>
-
-
-    <div
-        class="filter-panel"
-        id="filter-panel">
-
+    <div class="filter-panel" id="filter-panel">
         <h3>Filter Food</h3>
 
         <label>Maximum Price</label>
-
         <select id="price-filter">
-
-            <option value="all">
-                Any price
-            </option>
-
-            <option value="50">
-                Under ₹50
-            </option>
-
-            <option value="100">
-                Under ₹100
-            </option>
-
-            <option value="150">
-                Under ₹150
-            </option>
-
+            <option value="all">Any price</option>
+            <option value="50">Under ₹50</option>
+            <option value="100">Under ₹100</option>
+            <option value="150">Under ₹150</option>
         </select>
-
 
         <label>Food Type</label>
-
         <select id="type-filter">
-
-            <option value="all">
-                All
-            </option>
-
-            <option value="veg">
-                Vegetarian
-            </option>
-
-            <option value="nonveg">
-                Non-Vegetarian
-            </option>
-
+            <option value="all">All</option>
+            <option value="veg">Vegetarian</option>
+            <option value="nonveg">Non-Vegetarian</option>
         </select>
 
-
-        <button
-            class="apply-filter-button"
-            onclick="applyFilters()">
-
-            Apply Filters
-
-        </button>
-
+        <button class="apply-filter-button" onclick="applyFilters()">Apply Filters</button>
     </div>
 
-
-
     <!-- RESTAURANTS -->
-
     <section class="section">
-
         <div class="section-heading">
-
             <h2>Restaurants</h2>
-
-            <button
-                class="view-button"
-                onclick="nextRestaurant()">
-
-                Browse more →
-
-            </button>
-
+            <button class="view-button" onclick="nextRestaurant()">Browse more →</button>
         </div>
 
-
         <div class="restaurant-wrapper">
+            <div class="restaurant-list" id="restaurant-list">
 
-            <div
-                class="restaurant-list"
-                id="restaurant-list">
-
-
-                <div
-                    class="restaurant-card"
-                    onclick="openRestaurant('Main Canteen')">
-
+                <div class="restaurant-card" onclick="openRestaurant('Main Canteen')">
                     <div class="restaurant-image main-canteen">
                         <h3>Main Canteen</h3>
                     </div>
-
                     <div class="restaurant-info">
-
                         <h3>Main Canteen</h3>
-
-                        <p class="traffic low">
-                            ● Low Traffic
-                        </p>
-
-                        <p>
-                            ◷ 5 min wait
-                        </p>
-
+                        <p class="traffic low">● Low Traffic</p>
+                        <p>◷ 5 min wait</p>
                     </div>
-
                 </div>
 
-
-
-                <div
-                    class="restaurant-card"
-                    onclick="openRestaurant('Café 21')">
-
+                <div class="restaurant-card" onclick="openRestaurant('Café 21')">
                     <div class="restaurant-image cafe">
                         <h3>Café 21</h3>
                     </div>
-
                     <div class="restaurant-info">
-
                         <h3>Café 21</h3>
-
-                        <p class="traffic moderate">
-                            ● Moderate Traffic
-                        </p>
-
-                        <p>
-                            ◷ 10 min wait
-                        </p>
-
+                        <p class="traffic moderate">● Moderate Traffic</p>
+                        <p>◷ 10 min wait</p>
                     </div>
-
                 </div>
 
-
-
-                <div
-                    class="restaurant-card"
-                    onclick="openRestaurant('Juice Bar')">
-
+                <div class="restaurant-card" onclick="openRestaurant('Juice Bar')">
                     <div class="restaurant-image juice">
                         <h3>Juice Bar</h3>
                     </div>
-
                     <div class="restaurant-info">
-
                         <h3>Juice Bar</h3>
-
-                        <p class="traffic busy">
-                            ● Busy
-                        </p>
-
-                        <p>
-                            ◷ 20 min wait
-                        </p>
-
+                        <p class="traffic busy">● Busy</p>
+                        <p>◷ 20 min wait</p>
                     </div>
-
                 </div>
 
-
-
-                <div
-                    class="restaurant-card"
-                    onclick="openRestaurant('Food Court')">
-
+                <div class="restaurant-card" onclick="openRestaurant('Food Court')">
                     <div class="restaurant-image food-court">
                         <h3>Food Court</h3>
                     </div>
-
                     <div class="restaurant-info">
-
                         <h3>Food Court</h3>
-
-                        <p class="traffic low">
-                            ● Low Traffic
-                        </p>
-
-                        <p>
-                            ◷ 8 min wait
-                        </p>
-
+                        <p class="traffic low">● Low Traffic</p>
+                        <p>◷ 8 min wait</p>
                     </div>
-
                 </div>
 
-
-
-                <div
-                    class="restaurant-card"
-                    onclick="openRestaurant('Pizza Corner')">
-
+                <div class="restaurant-card" onclick="openRestaurant('Pizza Corner')">
                     <div class="restaurant-image pizza-corner">
                         <h3>Pizza Corner</h3>
                     </div>
-
                     <div class="restaurant-info">
-
                         <h3>Pizza Corner</h3>
-
-                        <p class="traffic moderate">
-                            ● Moderate Traffic
-                        </p>
-
-                        <p>
-                            ◷ 12 min wait
-                        </p>
-
+                        <p class="traffic moderate">● Moderate Traffic</p>
+                        <p>◷ 12 min wait</p>
                     </div>
-
                 </div>
 
-
             </div>
-
         </div>
-
     </section>
-
-
 
     <!-- CATEGORIES -->
-
     <section class="section">
-
         <div class="section-heading">
-
             <h2>Categories</h2>
-
-            <button
-                class="view-button"
-                onclick="showAllFood()">
-
-                View all →
-
-            </button>
-
+            <button class="view-button" onclick="showAllFood()">View all →</button>
         </div>
-
 
         <div class="category-list">
-
-            <button
-                class="category-card"
-                onclick="filterCategory('Burger')">
-
-                <span class="category-icon">
-                    🍔
-                </span>
-
-                <span>
-                    Burgers
-                </span>
-
+            <button class="category-card" onclick="filterCategory('Burger')">
+                <span class="category-icon">🍔</span>
+                <span>Burgers</span>
             </button>
 
-
-            <button
-                class="category-card"
-                onclick="filterCategory('Pizza')">
-
-                <span class="category-icon">
-                    🍕
-                </span>
-
-                <span>
-                    Pizza
-                </span>
-
+            <button class="category-card" onclick="filterCategory('Pizza')">
+                <span class="category-icon">🍕</span>
+                <span>Pizza</span>
             </button>
 
-
-            <button
-                class="category-card"
-                onclick="filterCategory('Indian')">
-
-                <span class="category-icon">
-                    🍛
-                </span>
-
-                <span>
-                    Indian
-                </span>
-
+            <button class="category-card" onclick="filterCategory('Indian')">
+                <span class="category-icon">🍛</span>
+                <span>Indian</span>
             </button>
 
-
-            <button
-                class="category-card"
-                onclick="filterCategory('Noodles')">
-
-                <span class="category-icon">
-                    🍜
-                </span>
-
-                <span>
-                    Noodles
-                </span>
-
+            <button class="category-card" onclick="filterCategory('Noodles')">
+                <span class="category-icon">🍜</span>
+                <span>Noodles</span>
             </button>
 
-
-            <button
-                class="category-card"
-                onclick="filterCategory('Drinks')">
-
-                <span class="category-icon">
-                    🥤
-                </span>
-
-                <span>
-                    Drinks
-                </span>
-
+            <button class="category-card" onclick="filterCategory('Drinks')">
+                <span class="category-icon">🥤</span>
+                <span>Drinks</span>
             </button>
 
-
-            <button
-                class="category-card"
-                onclick="filterCategory('Dessert')">
-
-                <span class="category-icon">
-                    🍨
-                </span>
-
-                <span>
-                    Desserts
-                </span>
-
+            <button class="category-card" onclick="filterCategory('Dessert')">
+                <span class="category-icon">🍨</span>
+                <span>Desserts</span>
             </button>
-
         </div>
-
     </section>
-
-
 
     <!-- FOOD -->
-
     <section class="food-section">
-
         <div class="section-heading">
-
             <div>
-
-                <h2 id="food-title">
-                    Food Items
-                </h2>
-
-                <p
-                    class="food-subtitle"
-                    id="food-subtitle">
-
+                <h2 id="food-title">Food Items</h2>
+                <p class="food-subtitle" id="food-subtitle">
                     Browse food from all restaurants
-
                 </p>
-
             </div>
-
         </div>
 
-
-        <div
-            class="food-grid"
-            id="food-grid">
-
-        </div>
-
+        <div class="food-grid" id="food-grid"></div>
     </section>
 
-
-
     <!-- FRIENDSHIP GROUP -->
-
     <section class="friendship-section">
-
         <div class="friendship-content">
-
             <div>
-
-                <span class="friendship-icon">
-                    👥
-                </span>
-
-                <h2>
-                    Friendship Group
-                </h2>
-
+                <span class="friendship-icon">👥</span>
+                <h2>Friendship Group</h2>
                 <p>
                     Ordering with friends?
                     Create one group order and split the total.
                 </p>
-
             </div>
 
-
-            <button
-                class="group-button"
-                onclick="openFriendshipGroup()">
-
+            <button class="group-button" onclick="openFriendshipGroup()">
                 Create Group Order
-
             </button>
-
         </div>
-
     </section>
-
 
 </main>
 
-
-
 <!-- MENU OVERLAY -->
-
-<div
-    class="overlay"
-    id="menu-overlay"
-    onclick="closeMenu()">
-</div>
-
-
+<div class="overlay" id="menu-overlay" onclick="closeMenu()"></div>
 
 <!-- SIDE MENU -->
-
-<aside
-    class="side-menu"
-    id="side-menu">
+<aside class="side-menu" id="side-menu">
 
     <div class="menu-header">
-
-        <h2>
-            Campus Food
-        </h2>
-
-        <button onclick="closeMenu()">
-            ✕
-        </button>
-
+        <h2>Campus Food</h2>
+        <button onclick="closeMenu()">✕</button>
     </div>
-
 
     <div class="menu-profile">
-
-        <div class="profile-circle">
-            H
-        </div>
-
+        <div class="profile-circle">H</div>
         <div>
-
-            <strong>
-                Harini
-            </strong>
-
-            <p>
-                Student
-            </p>
-
+            <strong>Harini</strong>
+            <p>Student</p>
         </div>
-
     </div>
 
-
-    <button
-        class="menu-option"
-        onclick="openAccount()">
-
-        👤 Account
-
-    </button>
-
-
-    <button
-        class="menu-option"
-        onclick="openPastOrders()">
-
-        🧾 Past Orders
-
-    </button>
-
-
-    <button
-        class="menu-option"
-        onclick="openFriendshipGroup()">
-
-        👥 Friendship Group
-
-    </button>
-
-
-    <button
-        class="menu-option logout"
-        onclick="logout()">
-
-        ↪ Logout
-
-    </button>
+    <button class="menu-option" onclick="openAccount()">👤 Account</button>
+    <button class="menu-option" onclick="openPastOrders()">🧾 Past Orders</button>
+    <button class="menu-option" onclick="openFriendshipGroup()">👥 Friendship Group</button>
+    <button class="menu-option logout" onclick="logout()">↪ Logout</button>
 
 </aside>
 
-
-
 <!-- CART OVERLAY -->
-
-<div
-    class="overlay"
-    id="cart-overlay"
-    onclick="closeCart()">
-</div>
-
-
+<div class="overlay" id="cart-overlay" onclick="closeCart()"></div>
 
 <!-- CART -->
-
-<aside
-    class="cart-panel"
-    id="cart-panel">
-
+<aside class="cart-panel" id="cart-panel">
 
     <div class="cart-header">
-
-        <h2>
-            Your Cart
-        </h2>
-
-        <button onclick="closeCart()">
-            ✕
-        </button>
-
+        <h2>Your Cart</h2>
+        <button onclick="closeCart()">✕</button>
     </div>
 
-
-    <div
-        class="cart-items"
-        id="cart-items">
-    </div>
-
+    <div class="cart-items" id="cart-items"></div>
 
     <div class="cart-footer">
 
-
         <div class="cart-total-row">
-
-            <span>
-                Total
-            </span>
-
-            <strong id="cart-total">
-                ₹0
-            </strong>
-
+            <span>Total</span>
+            <strong id="cart-total">₹0</strong>
         </div>
-
-
 
         <!-- PAYMENT -->
-
         <div class="payment-section">
-
-            <h3>
-                Payment Method
-            </h3>
-
+            <h3>Payment Method</h3>
 
             <label class="payment-option">
-
-                <input
-                    type="radio"
-                    name="payment-method"
-                    value="cod"
-                    checked
-                    onchange="showUPIOption()">
-
-                <span>
-                    💵 Cash on Delivery
-                </span>
-
+                <input type="radio" name="payment-method" value="cod" checked onchange="showUPIOption()">
+                <span>💵 Cash on Delivery</span>
             </label>
-
 
             <label class="payment-option">
-
-                <input
-                    type="radio"
-                    name="payment-method"
-                    value="upi"
-                    onchange="showUPIOption()">
-
-                <span>
-                    📱 UPI
-                </span>
-
+                <input type="radio" name="payment-method" value="upi" onchange="showUPIOption()">
+                <span>📱 UPI</span>
             </label>
 
-
-            <div
-                id="upi-section"
-                class="upi-section">
-
-                <label for="upi-id">
-                    UPI ID
-                </label>
-
-                <input
-                    type="text"
-                    id="upi-id"
-                    placeholder="Example: name@upi">
-
-                <p
-                    id="upi-error"
-                    class="upi-error">
-                </p>
-
+            <div id="upi-section" class="upi-section">
+                <label for="upi-id">UPI ID</label>
+                <input type="text" id="upi-id" placeholder="Example: name@upi">
+                <p id="upi-error" class="upi-error"></p>
             </div>
-
         </div>
 
-
-
-        <button
-            class="checkout-button"
-            onclick="placeOrder()">
-
-            Place Order
-
-        </button>
+        <button class="checkout-button" onclick="placeOrder()">Place Order</button>
 
     </div>
-
 </aside>
 
-
-
 <!-- FRIENDSHIP GROUP -->
-
-<div
-    class="modal-overlay"
-    id="friendship-modal">
+<div class="modal-overlay" id="friendship-modal">
 
     <div class="modal">
 
-        <button
-            class="close-modal"
-            onclick="closeFriendshipGroup()">
+        <button class="close-modal" onclick="closeFriendshipGroup()">✕</button>
 
-            ✕
+        <h2>Friendship Group</h2>
+        <p>Create a group order and split the total with your friends.</p>
 
-        </button>
+        <label>Group Name</label>
+        <input type="text" id="group-name" placeholder="Example: Lunch Squad">
 
-        <h2>
-            Friendship Group
-        </h2>
-
-        <p>
-            Create a group order and split the total with your friends.
-        </p>
-
-        <label>
-            Group Name
-        </label>
-
-        <input
-            type="text"
-            id="group-name"
-            placeholder="Example: Lunch Squad">
-
-
-        <label>
-            Number of Friends
-        </label>
-
+        <label>Number of Friends</label>
         <select id="friend-count">
-
-            <option value="2">
-                2 people
-            </option>
-
-            <option value="3">
-                3 people
-            </option>
-
-            <option value="4">
-                4 people
-            </option>
-
-            <option value="5">
-                5 people
-            </option>
-
-            <option value="6">
-                6 people
-            </option>
-
+            <option value="2">2 people</option>
+            <option value="3">3 people</option>
+            <option value="4">4 people</option>
+            <option value="5">5 people</option>
+            <option value="6">6 people</option>
         </select>
 
-
         <div class="group-total">
-
-            <span>
-                Example group total
-            </span>
-
-            <strong>
-                ₹350
-            </strong>
-
+            <span>Example group total</span>
+            <strong>₹350</strong>
         </div>
 
-
-        <button
-            class="create-group-button"
-            onclick="createGroup()">
-
+        <button class="create-group-button" onclick="createGroup()">
             Create Group Order
-
         </button>
 
-
-        <p
-            class="group-success"
-            id="group-success">
-        </p>
+        <p class="group-success" id="group-success"></p>
 
     </div>
-
 </div>
 
-
-
 <!-- ACCOUNT -->
-
-<div
-    class="modal-overlay"
-    id="account-modal">
+<div class="modal-overlay" id="account-modal">
 
     <div class="modal">
 
-        <button
-            class="close-modal"
-            onclick="closeAccount()">
+        <button class="close-modal" onclick="closeAccount()">✕</button>
 
-            ✕
-
-        </button>
-
-
-        <h2>
-            Account
-        </h2>
-
+        <h2>Account</h2>
 
         <div class="account-profile">
-
-            <div class="large-profile-circle">
-                H
-            </div>
-
-            <h3>
-                Harini
-            </h3>
-
-            <p>
-                Student
-            </p>
-
+            <div class="large-profile-circle">H</div>
+            <h3>Harini</h3>
+            <p>Student</p>
         </div>
 
-
         <div class="account-info">
-
             <div>
                 <span>Name</span>
                 <strong>Harini</strong>
@@ -843,153 +332,69 @@
                 <span>Campus</span>
                 <strong>Main Campus</strong>
             </div>
-
         </div>
 
     </div>
-
 </div>
 
-
-
 <!-- PAST ORDERS -->
-
-<div
-    class="modal-overlay"
-    id="orders-modal">
+<div class="modal-overlay" id="orders-modal">
 
     <div class="modal">
 
-        <button
-            class="close-modal"
-            onclick="closePastOrders()">
+        <button class="close-modal" onclick="closePastOrders()">✕</button>
 
-            ✕
+        <h2>Past Orders</h2>
 
-        </button>
-
-
-        <h2>
-            Past Orders
-        </h2>
-
-
-        <div
-            id="past-orders"
-            class="past-orders">
+        <div id="past-orders" class="past-orders">
 
             <div class="past-order">
-
                 <div>
-
-                    <strong>
-                        Order #4821
-                    </strong>
-
-                    <p>
-                        Veg Burger · Cold Coffee
-                    </p>
-
+                    <strong>Order #4821</strong>
+                    <p>Veg Burger · Cold Coffee</p>
                 </div>
-
-                <strong>
-                    ₹120
-                </strong>
-
+                <strong>₹120</strong>
             </div>
 
-
             <div class="past-order">
-
                 <div>
-
-                    <strong>
-                        Order #3912
-                    </strong>
-
-                    <p>
-                        Veg Noodles
-                    </p>
-
+                    <strong>Order #3912</strong>
+                    <p>Veg Noodles</p>
                 </div>
-
-                <strong>
-                    ₹90
-                </strong>
-
+                <strong>₹90</strong>
             </div>
 
         </div>
-
     </div>
-
 </div>
 
-
-
 <!-- ORDER CONFIRMATION -->
-
-<div
-    class="modal-overlay"
-    id="order-modal">
+<div class="modal-overlay" id="order-modal">
 
     <div class="modal order-success-modal">
 
+        <div class="success-icon">✓</div>
 
-        <div class="success-icon">
-            ✓
-        </div>
-
-
-        <h2>
-            Order Confirmed!
-        </h2>
-
+        <h2>Order Confirmed!</h2>
 
         <p>
             Show this confirmation at the counter when you collect your food.
         </p>
 
-
         <div class="order-number-box">
-
-            <span>
-                Order Number
-            </span>
-
-            <strong id="order-number">
-                #0000
-            </strong>
-
+            <span>Order Number</span>
+            <strong id="order-number">#0000</strong>
         </div>
-
 
         <div class="payment-confirmation">
-
-            <span>
-                Payment Method
-            </span>
-
-            <strong id="confirmed-payment">
-                Cash on Delivery
-            </strong>
-
+            <span>Payment Method</span>
+            <strong id="confirmed-payment">Cash on Delivery</strong>
         </div>
 
-
-        <button
-            class="create-group-button"
-            onclick="closeOrder()">
-
-            Done
-
-        </button>
+        <button class="create-group-button" onclick="closeOrder()">Done</button>
 
     </div>
-
 </div>
-
-
 
 <script src="script.js"></script>
 
